@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="HibernateSessionFactory">
+  <!-- Database connection settings -->
+  <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+  <property name="hibernate.connection.password">123456</property>
+  <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/swingbernate</property>
+   
+  <!-- <property name="hibernate.connection.url">jdbc:postgresql://190.202.125.134:5432/zacaro</property>-->
+ 
+  <property name="hibernate.connection.username">postgres</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+  <!-- JDBC connection pool (use the built-in) -->
+  <property name="connection.pool_size">10</property>
+  <property name="hibernate.c3p0.min_size">3</property>
+  <property name="hibernate.c3p0.max_size">15</property>
+  <property name="hibernate.c3p0.timeout">5000</property>
+  <property name="hibernate.c3p0.max_statements">50</property>
+  <property name="hibernate.c3p0.idle_test_period">300</property>
+  <property name="hibernate.c3p0.acquire_increment">3</property>
+  <!-- SQL dialect 
+ Enable Hibernate's automatic session context management -->
+  <property name="current_session_context_class">thread</property>
+  <!-- Disable the second-level cache  -->
+  
+  <!--<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>-->
+  
+  <property name="hibernate.cache.use_second_level_cache">true</property>
+  <property name="hibernate.cache.use_query_cache">true</property>
+  <property name="hibernate.cache.region.factory_class">net.sf.ehcache.hibernate.EhCacheRegionFactory</property>
+  <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+  <property name="hibernate.cache.use_structured_entries">true</property>
+  <property name="hibernate.generate_statistics">true</property>
+  
+  <property name="hibernate.cache.provider_configuration_file_resource_path">/ehcache.xml</property>
+  
+  <!-- hibernate.cache.provider_configuration_file_resource_path net.sf.ehcache.configurationResourceName= Echo all executed SQL to stdout -->
+
+  <property name="show_sql">false</property>
+  <!-- Drop and re-create the database schema on startup -->
+    <property name="hbm2ddl.auto">update</property>
+
+  
+  <!-- Drop and re-create the database schema on startup -->
+  <!--  <property name="hbm2ddl.auto">create-drop</property>
+  <property name="hbm2ddl.auto">update</property>-->
+  
+  
+  <mapping class="Maestro.Maestro"/>
+  <mapping class="UnidadDeMedida.UnidadDeMedida"/>
+  <mapping class="SocioDeNegocio.SocioDeNegocio"/>
+  <mapping class="DomicilioSocioDeNegocio.DomicilioSocioDeNegocio"/>
+  <mapping class="ContactoSocioDeNegocio.ContactoSocioDeNegocio"/>
+  <mapping class="Reporte.Reporte"/>
+  <mapping class="Pais.Pais"/>
+  <mapping class="Estado.Estado"/>
+  <mapping class="Municipio.Municipio"/>
+  <mapping class="Parroquia.Parroquia"/>
+  <mapping class="Zona.Zona"/> 
+  <mapping class="SubZona.SubZona"/>
+  <mapping class="Sector.Sector"/>
+  <mapping class="Organizacion.Organizacion"/>
+  
+  <mapping class="Usuario.Usuario"/>
+  <mapping class="Perfil.Perfil"/>
+  <mapping class="Tarea.Tarea"/>
+  <mapping class="Menu.Menu"/>
+  <mapping class="Menu_Tarea.Menu_Tarea"/>
+  <mapping class="Usuario_Org.Usuario_Org"/>
+  <mapping class="Usuario_Perfil.Usuario_Perfil"/>
+  
+  <mapping class="Cargo_Org.Cargo_Org"/>
+  <mapping class="AtributoCentral.AtributoCentral" />
+  <mapping class="Unidad_Org.Unidad_Org" />
+  <mapping class="Cargo_Empleado.Cargo_Empleado" />
+  <mapping class="Empleado_Org.Empleado_Org" />
+  <mapping class="Periodo.Periodo"/>
+  
+  <mapping class="Variable.Variable"/>
+  <mapping class="Indicador.Indicador"/>
+  <mapping class="Alerta_Indicador.Alerta_Indicador" />
+  <mapping class="RegistroIndicador.RegistroIndicador"/>
+  <mapping class="RegistroVariable.RegistroVariable"/>
+  <mapping class="Meta_Org.Meta_Org" />  
+  
+  <mapping class="Tema.Tema" />
+   
+ </session-factory>
+</hibernate-configuration>
